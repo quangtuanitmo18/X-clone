@@ -1,7 +1,7 @@
-import Link from "next/link";
-import Image from "./Image";
 import { prisma } from "@/prisma";
 import { auth } from "@clerk/nextjs/server";
+import Link from "next/link";
+import Image from "./Image";
 
 const Recommendations = async () => {
   const { userId } = await auth();
@@ -32,7 +32,7 @@ const Recommendations = async () => {
           <div className="flex items-center gap-2">
             <div className="relative rounded-full overflow-hidden w-10 h-10">
               <Image
-                path={person.img || "general/noAvatar.png"}
+                path={person.img || "general/noAvatar.svg"}
                 alt={person.username}
                 w={100}
                 h={100}
@@ -40,7 +40,9 @@ const Recommendations = async () => {
               />
             </div>
             <div className="">
-              <h1 className="text-md font-bold">{person.displayName || person.username}</h1>
+              <h1 className="text-md font-bold">
+                {person.displayName || person.username}
+              </h1>
               <span className="text-textGray text-sm">@{person.username}</span>
             </div>
           </div>

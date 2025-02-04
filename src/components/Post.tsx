@@ -1,11 +1,10 @@
-import { imagekit } from "@/utils";
+import { Post as PostType } from "@prisma/client";
+import Link from "next/link";
+import { format } from "timeago.js";
 import Image from "./Image";
 import PostInfo from "./PostInfo";
 import PostInteractions from "./PostInteractions";
 import Video from "./Video";
-import Link from "next/link";
-import { Post as PostType } from "@prisma/client";
-import { format } from "timeago.js";
 
 type UserSummary = {
   displayName: string | null;
@@ -64,7 +63,7 @@ const Post = ({
           } relative w-10 h-10 rounded-full overflow-hidden -z-10`}
         >
           <Image
-            path={originalPost.user.img || "general/noAvatar.png"}
+            path={originalPost.user.img || "general/noAvatar.svg"}
             alt=""
             w={100}
             h={100}
@@ -86,7 +85,7 @@ const Post = ({
                 } relative w-10 h-10 rounded-full overflow-hidden`}
               >
                 <Image
-                  path={originalPost.user.img || "general/noAvatar.png"}
+                  path={originalPost.user.img || "general/noAvatar.svg"}
                   alt=""
                   w={100}
                   h={100}

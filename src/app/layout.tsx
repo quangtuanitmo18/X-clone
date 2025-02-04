@@ -1,11 +1,11 @@
 import "./globals.css";
 
-import type { Metadata } from "next";
-import { ClerkProvider } from "@clerk/nextjs";
 import QueryProvider from "@/providers/QueryProvider";
+import { ClerkProvider } from "@clerk/nextjs";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Lama Dev X Clone",
+  title: "X Clone",
   description: "Next.js social media application project",
 };
 

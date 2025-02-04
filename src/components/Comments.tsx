@@ -1,12 +1,12 @@
 "use client";
 
-import { useUser } from "@clerk/nextjs";
-import Image from "./Image";
-import Post from "./Post";
-import { Post as PostType } from "@prisma/client";
-import { useActionState, useEffect } from "react";
 import { addComment } from "@/action";
 import { socket } from "@/socket";
+import { useUser } from "@clerk/nextjs";
+import { Post as PostType } from "@prisma/client";
+import { useActionState, useEffect } from "react";
+import Image from "./Image";
+import Post from "./Post";
 
 type CommentWithDetails = PostType & {
   user: { displayName: string | null; username: string; img: string | null };
@@ -55,7 +55,7 @@ const Comments = ({
           <div className="relative w-10 h-10 rounded-full overflow-hidden -z-10">
             <Image
               src={user?.imageUrl}
-              alt="Lama Dev"
+              alt="Tuan Dev"
               w={100}
               h={100}
               tr={true}

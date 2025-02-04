@@ -25,7 +25,7 @@ const PostModal = () => {
           <div className="relative w-10 h-10 rounded-full overflow-hidden">
             <Image
               path="general/avatar.png"
-              alt="Lama Dev"
+              alt="Tuan Dev"
               w={100}
               h={100}
               tr={true}
@@ -83,7 +83,9 @@ const PostModal = () => {
               className="cursor-pointer"
             />
           </div>
-          <button className="py-2 px-5 text-black bg-white rounded-full font-bold">Post</button>
+          <button className="py-2 px-5 text-black bg-white rounded-full font-bold">
+            Post
+          </button>
         </div>
       </div>
     </div>

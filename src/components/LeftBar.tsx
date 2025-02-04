@@ -1,9 +1,9 @@
+import { currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
 import Image from "./Image";
-import Socket from "./Socket";
-import Notification from "./Notification";
-import { currentUser } from "@clerk/nextjs/server";
 import Logout from "./Logout";
+import Notification from "./Notification";
+import Socket from "./Socket";
 
 const menuList = [
   {
@@ -52,7 +52,7 @@ const menuList = [
     id: 8,
     name: "Premium",
     link: "/",
-    icon: "logo.svg",
+    icon: "premium.svg",
   },
   {
     id: 9,
@@ -70,6 +70,9 @@ const menuList = [
 
 const LeftBar = async () => {
   const user = await currentUser();
+  console.log(user);
+
+  if (!user) return <div>Not signed in</div>;
 
   return (
     <div className="h-screen sticky top-0 flex flex-col justify-between pt-2 pb-8">
@@ -77,7 +80,13 @@ const LeftBar = async () => {
       <div className="flex flex-col gap-4 text-lg items-center xxl:items-start">
         {/* LOGO */}
         <Link href="/" className="p-2 rounded-full hover:bg-[#181818] ">
-          <Image path="icons/logo.svg" alt="logo" w={24} h={24} />
+          <Image
+            path="icons/logo.svg"
+            alt="logo"
+            w={24}
+            h={24}
+            className="text-white"
+          />
         </Link>
         {/* MENU LIST */}
         <div className="flex flex-col gap-4">
@@ -124,13 +133,7 @@ const LeftBar = async () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 relative rounded-full overflow-hidden">
-                <Image
-                  src={user?.imageUrl}
-                  alt=""
-                  w={100}
-                  h={100}
-                  tr={true}
-                />
+                <Image src={user?.imageUrl} alt="" w={100} h={100} tr={true} />
               </div>
               <div className="hidden xxl:flex flex-col">
                 <span className="font-bold">{user?.username}</span>
@@ -139,7 +142,7 @@ const LeftBar = async () => {
             </div>
             {/* <div className="hidden xxl:block cursor-pointer font-bold">...</div> */}
             {/* ADD LOGOUT */}
-            <Logout/>
+            <Logout />
           </div>
         </>
       )}
