@@ -51,7 +51,7 @@ const SignUpPage = () => {
               </svg>
               Sign up with Google
             </Clerk.Connection>
-            <Clerk.Connection
+            {/* <Clerk.Connection
               name="apple"
               className="bg-white rounded-full p-2 text-black w-72 flex items-center justify-center gap-2 font-bold"
             >
@@ -59,7 +59,7 @@ const SignUpPage = () => {
                 <path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45z"></path>
               </svg>
               Sign up with Apple
-            </Clerk.Connection>
+            </Clerk.Connection> */}
             <div className="flex flex-col gap-4">
               Sign up with Credentials
               <Clerk.Field name="username" className="flex flex-col gap-2">
@@ -84,6 +84,15 @@ const SignUpPage = () => {
                 <Clerk.FieldError className="text-red-300 text-sm" />
               </Clerk.Field>
               <SignUp.Captcha />
+              {/* CAPTCHA Widget */}
+              {/* <div id="clerk-captcha"></div> */}
+              {/* <SignUp.Captcha
+                appearance={{
+                  elements: {
+                    captcha: "#clerk-captcha",
+                  },
+                }}
+              /> */}
               <SignUp.Action
                 submit
                 className="bg-iconBlue rounded-full p-2 text-white font-bold w-72 text-center "
@@ -94,11 +103,19 @@ const SignUpPage = () => {
           </SignUp.Step>
           <SignUp.Step name="continue" className="flex flex-col gap-4">
             <Clerk.Field name="username">
-              <Clerk.Input placeholder="username" className="py-2 px-6 rounded-full text-black w-72 placeholder:text-sm" />
+              <Clerk.Input
+                placeholder="username"
+                className="py-2 px-6 rounded-full text-black w-72 placeholder:text-sm"
+              />
               <Clerk.FieldError className="text-red-300 text-sm" />
             </Clerk.Field>
 
-            <SignUp.Action submit className="w-72 text-center text-iconBlue underline">Continue</SignUp.Action>
+            <SignUp.Action
+              submit
+              className="w-72 text-center text-iconBlue underline"
+            >
+              Continue
+            </SignUp.Action>
           </SignUp.Step>
           <SignUp.Step name="verifications">
             <SignUp.Strategy name="email_code">

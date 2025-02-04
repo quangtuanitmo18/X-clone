@@ -1,10 +1,10 @@
 "use server";
 
 import { auth } from "@clerk/nextjs/server";
-import { prisma } from "./prisma";
-import { z } from "zod";
-import { revalidatePath } from "next/cache";
 import { UploadResponse } from "imagekit/dist/libs/interfaces";
+import { revalidatePath } from "next/cache";
+import { z } from "zod";
+import { prisma } from "./prisma";
 import { imagekit } from "./utils";
 
 export const followUser = async (targetUserId: string) => {
@@ -231,7 +231,6 @@ export const addPost = async (
     revalidatePath(`/`);
     return { success: true, error: false };
   } catch (err) {
-    console.log(err);
     return { success: false, error: true };
   }
   return { success: false, error: true };
